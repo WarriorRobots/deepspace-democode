@@ -22,7 +22,6 @@ public class DebugRebootAll extends InstantCommand {
 		requires(Robot.arm);
 		requires(Robot.camera);
 		requires(Robot.cargoPickupWheels);
-		requires(Robot.climb);
 		requires(Robot.drivetrain);
 		requires(Robot.elevator);
 		requires(Robot.hatchPickupWheels);
@@ -45,7 +44,6 @@ public class DebugRebootAll extends InstantCommand {
 		Robot.arm.stopArm();
 		Robot.camera.setPipeline(CameraSubsystem.PIPELINE_DRIVER);
 		Robot.cargoPickupWheels.stopPickup();
-		Robot.climb.stopClimb();
 		Robot.drivetrain.stopDrive();
 		Robot.elevator.stopElevator();
 		Robot.hatchPickupWheels.stopPickup();

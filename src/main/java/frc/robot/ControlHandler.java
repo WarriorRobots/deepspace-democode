@@ -6,14 +6,10 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.cargo.RunCargoPickupWheels;
-import frc.robot.commands.climb.AdjustClimbRelative;
-import frc.robot.commands.climb.MoveClimbTo;
-import frc.robot.commands.climb.SynchronizedClimb;
 import frc.robot.commands.debug.DebugLinearArmControl;
 import frc.robot.commands.debug.DebugLinearElevatorControl;
 import frc.robot.commands.cargo.ReverseCargoPickupWheels;
 import frc.robot.commands.debug.DebugRebootAll;
-import frc.robot.commands.debug.DebugResetClimbEncoder;
 import frc.robot.commands.autonomous.CameraApproach;
 import frc.robot.commands.autonomous.CameraStopAtDistance;
 import frc.robot.commands.cargo.FindArmZero;
@@ -119,8 +115,6 @@ public final class ControlHandler {
 		leftJoyTriggerButton.whenPressed(new HomeElevator());
 		leftJoyButton3.whenPressed(new LockScissors());
 		leftJoyButton4.whenPressed(new PlaceHatchOnVelcro(QuickAccessVars.HATCH_LAUNCH_SAFETY));
-		leftJoyButton5.whenPressed(new MoveClimbTo(0));
-		leftJoyButton6.whenPressed(new SynchronizedClimb(QuickAccessVars.CLIMB_TARGET_HAB2));
 		// debug
 		leftJoyButton7.whenPressed(new DebugRebootAll());
 		leftJoyButton9.whenPressed(new FindArmZero());
@@ -134,7 +128,6 @@ public final class ControlHandler {
 		rightJoyButton3.whenPressed(new ExtendArm(QuickAccessVars.ARM_PICKUP_CARGO_ANGLE));
 		rightJoyButton4.whileHeld(new CameraApproach());
 		rightJoyButton5.whenPressed(new ExtendArm(QuickAccessVars.ARM_CLIMB_ANGLE));
-		rightJoyButton6.whenPressed(new SynchronizedClimb(QuickAccessVars.CLIMB_TARGET_HAB3));
 
 		xboxL3.whileHeld(new DebugLinearElevatorControl(
 				() -> xbox.getY(Hand.kLeft) * QuickAccessVars.LINEAR_CONTROLS_MODIFIER * -1));
