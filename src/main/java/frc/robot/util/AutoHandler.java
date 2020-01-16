@@ -1,8 +1,6 @@
 package frc.robot.util;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.commands.autonomous.paths.routines.Forwards;
-import frc.robot.commands.autonomous.paths.routines.Rocket;
 
 /**
  * Add your docs here.
@@ -32,20 +30,7 @@ public class AutoHandler {
      * Have AutoHandler select a case based on dashboard values
     */
     public void selectCase() {
-        switch (DashboardHandler.getInstance().getAutoAction()) {
-            case RIGHTROCKETHAB2:
-                autocommand = new Rocket("RocketRightHab2");
-                break;
-            case LEFTROCKETHAB2:
-                autocommand = new Rocket("RocketLeftHab2");
-                break;
-            case FORWARDS:
-                autocommand = new Forwards("ForwardsHab1");
-                break;
-            case NONE:
-                // does nothing
-                break;
-        }
+        // don't run auto on a demobot
     }
 
     /**
